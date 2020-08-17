@@ -250,9 +250,24 @@ var BMapGLLib = window.BMapGLLib = BMapGLLib || {};
      * @example <b>参考示例：</b><br />
      * lushu.start();
      */
-    LuShu.prototype.start = function () {
+    LuShu.prototype.start = function (_end_callback) {
         var me = this,
             len = me._path.length;
+
+        //自定义添加 当结束的时候判断回调函数 --lyf
+        if(this.end_callback) {
+            //当前路书未结束,新的直接返回
+            console.log("当前路书没有跑完,等跑完后在start");
+            return ;
+
+        }
+
+        if(_end_callback) {
+            //路书跑完结束回调
+            this.end_callback = _end_callback ;
+
+        }
+
         //不是第一次点击开始,并且小车还没到达终点
         if (me.i && me.i < len - 1) {
             //没按pause再按start不做处理
@@ -570,6 +585,15 @@ var BMapGLLib = window.BMapGLLib = BMapGLLib || {};
             // debugger;
             if (index < this._path.length - 1) {
                 me._move(me._path[index], me._path[index + 1], me._tween.linear);
+            }else {
+
+                if( this.end_callback){
+                    this.end_callback();
+                    this.end_callback = null;
+                    if(this._marker)
+                        this._map.removeOverlay(this._marker);
+                }
+
             }
         },
         /**
