@@ -30,13 +30,13 @@
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 
     map.setHeading(64.5);   //设置地图旋转角度
-    map.setTilt(73);       //设置地图的倾斜角度
+    map.setTilt(45);       //设置地图的倾斜角度
     map.setMapType(BMAP_EARTH_MAP);      // 设置地图类型为地球模式
 
     var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
     map.addControl(scaleCtrl);
     var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
-    map.addControl(zoomCtrl);
+    //map.addControl(zoomCtrl);
 
     var opts_baiyun = {
         width: 0,     // 信息窗口宽度
@@ -71,14 +71,13 @@
         geodesic: true,
         autoCenter: true,
         icon: new BMapGL.Icon(fly, new BMapGL.Size(30, 30), { anchor: new BMapGL.Size(24, 24) }), //飞机尺寸
-        speed: 2000000,  //覆盖物移动速度，单位米/秒
+        speed: 2500000,  //覆盖物移动速度，单位米/秒
         enableRotation: true,
         landmarkPois:[
             /*{lng:91.140031,lat:29.653516,html:'拉萨风火水土藏式生活民宿',pauseTime:2},*/
             {lng:113.31249,lat:23.395899,html:'(day1)起点：广州白云国际机场1',pauseTime:8},
             {lng:113.312728,lat:23.395966,html:'(day1)起点：广州白云国际机场2',pauseTime:8},
             {lng:113.313348,lat:23.395804,html:'(day1)起点：广州白云国际机场3',pauseTime:8},
-            /*{lng:91.125038,lat:29.660346,html:'布达拉宫',pauseTime:3}*/
             {lng:90.918706,lat:29.299495,html:'(day1)到达：拉萨贡嘎国际机场',pauseTime:3}
         ]
     });
@@ -86,7 +85,7 @@
 
     //setTimeout('lushu.start(function() { alert("路书结束的回调函数1") })', 8000);
     //setTimeout('map.closeInfoWindow()', 8000);
-    setTimeout('map.setZoom(13);', 18000);
+
 
 
 
@@ -94,13 +93,47 @@
     //map.addOverlay(polyline);  //显示飞行线路
 
     function startLushu() {
-        lushu.start(function () {
-            alert("路书结束的回调函数1"); //回调方法不知道如何实现--todo
-        });
+
 
         //路书启动,参数为一个函数
         lushu.start(function() {
-            alert("路书结束的回调开始调用了1");
+            var point1 = new BMapGL.Point(90.918706,29.299495);
+            map.centerAndZoom(point1, 6.2);
+            map.centerAndZoom(point1, 6.4);
+            map.centerAndZoom(point1, 6.6);
+            map.centerAndZoom(point1, 6.8);
+            map.centerAndZoom(point1, 7);
+            map.centerAndZoom(point1, 7.2);
+            map.centerAndZoom(point1, 7.4);
+            map.centerAndZoom(point1, 7.6);
+            map.centerAndZoom(point1, 7.8);
+            map.centerAndZoom(point1, 8);
+            map.centerAndZoom(point1, 8.2);
+            map.centerAndZoom(point1, 8.4);
+            map.centerAndZoom(point1, 8.6);
+            map.centerAndZoom(point1, 8.8);
+            map.centerAndZoom(point1, 8);
+            map.centerAndZoom(point1, 9);
+            map.centerAndZoom(point1, 9.2);
+            map.centerAndZoom(point1, 9.4);
+            map.centerAndZoom(point1, 9.6);
+            map.centerAndZoom(point1, 9.8);
+            map.centerAndZoom(point1, 10);
+            map.centerAndZoom(point1, 10.2);
+            map.centerAndZoom(point1, 10.4);
+            map.centerAndZoom(point1, 10.6);
+            map.centerAndZoom(point1, 10.8);
+            map.centerAndZoom(point1, 11);
+            map.centerAndZoom(point1, 11.2);
+            map.centerAndZoom(point1, 11.4);
+            map.centerAndZoom(point1, 11.6);
+            map.centerAndZoom(point1, 11.8);
+            map.centerAndZoom(point1, 12);
+            map.centerAndZoom(point1, 12.2);
+            map.centerAndZoom(point1, 12.4);
+            map.centerAndZoom(point1, 12.6);
+            map.centerAndZoom(point1, 12.8);
+            map.centerAndZoom(point1, 13);
             lushu = null; //当前路书置空
         });
     }
@@ -146,13 +179,37 @@
     drv.search(start, end);
 
     function startLushu3() {
-        lushu3.start();
-
         //路书启动,参数为一个函数
-        /*lushu3.start(function() {
-            console.log("路书结束的回调开始调用了3");
+        lushu3.start(function() {
+            var point3 = new BMapGL.Point(91.140422,29.652606);
+
+            map.centerAndZoom(point1, 13.2);
+            map.centerAndZoom(point1, 13.4);
+            map.centerAndZoom(point1, 13.6);
+            map.centerAndZoom(point1, 13.8);
+            map.centerAndZoom(point3, 14);
+            map.centerAndZoom(point1, 14.2);
+            map.centerAndZoom(point1, 14.4);
+            map.centerAndZoom(point1, 14.6);
+            map.centerAndZoom(point1, 14.8);
+            map.centerAndZoom(point3, 15);
+            map.centerAndZoom(point1, 15.2);
+            map.centerAndZoom(point1, 15.4);
+            map.centerAndZoom(point1, 15.6);
+            map.centerAndZoom(point1, 15.8);
+            map.centerAndZoom(point3, 16);
+            map.centerAndZoom(point1, 16.2);
+            map.centerAndZoom(point1, 16.4);
+            map.centerAndZoom(point1, 16.6);
+            map.centerAndZoom(point1, 16.8);
+            map.centerAndZoom(point3, 17);
+            map.centerAndZoom(point1, 17.2);
+            map.centerAndZoom(point1, 17.4);
+            map.centerAndZoom(point1, 17.6);
+            map.centerAndZoom(point1, 17.8);
+            map.centerAndZoom(point3, 18);
             lushu3 = null; //当前路书置空
-        });*/
+        });
     }
 
     setTimeout('startLushu3()', 21000);
@@ -166,7 +223,7 @@
     var polyline2 = new BMapGL.Polyline(path2, {
         clip: false,
         geodesic: true,
-        strokeWeight: 4
+        strokeWeight: 1
     });
     map.addOverlay(polyline2);  //显示飞行线路
 
@@ -182,18 +239,20 @@
         ]
     });
 
-    setTimeout('map.setZoom(18);',  37000);
+    //setTimeout('map.setZoom(18);',  37000);
     //setTimeout('lushu2.start(function() { alert("路书结束的回调函数2") })', 40000);
 
 
     function startLushu2() {
-        lushu2.start();
-
-        //路书启动,参数为一个函数
-        /*lushu2.start(function() {
-            console.log("路书结束的回调开始调用了2");
+        lushu2.start(function() {
+            var point2 = new BMapGL.Point(91.140031,29.653516);
+            map.centerAndZoom(point2, 18.2);
+            map.centerAndZoom(point2, 18.4);
+            map.centerAndZoom(point2, 18.6);
+            map.centerAndZoom(point2, 18.8);
+            map.centerAndZoom(point2, 19);
             lushu2 = null; //当前路书置空
-        });*/
+        });
     }
 
     setTimeout('startLushu2()', 40000);
