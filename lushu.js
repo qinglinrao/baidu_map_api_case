@@ -590,8 +590,9 @@ var BMapGLLib = window.BMapGLLib = BMapGLLib || {};
                 if( this.end_callback){
                     this.end_callback();
                     this.end_callback = null;
-                    if(this._marker)
-                        this._map.removeOverlay(this._marker);
+                    /*移除图标！*/
+                    /*if(this._marker)
+                        this._map.removeOverlay(this._marker);*/
                 }
 
             }
