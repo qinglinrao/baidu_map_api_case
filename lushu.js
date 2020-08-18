@@ -479,10 +479,10 @@ var BMapGLLib = window.BMapGLLib = BMapGLLib || {};
                         y = effect(init_pos.y, target_pos.y, currentCount, count),
                         pos = BMapGL.Projection.convertMC2LL(new BMapGL.Point(x, y));
                     // init_pos = new BMapGL.Pixel(init_pos.lng, init_pos.lat);
-                    if (pos.lng > 180) {
+                    if (pos.lng > 60) {
                         pos.lng = pos.lng - 360;
                     }
-                    if (pos.lng < -180) {
+                    if (pos.lng < -60) {
                         pos.lng = pos.lng + 360;
                     }
                     //设置marker
