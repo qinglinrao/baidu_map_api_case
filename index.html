@@ -7,11 +7,11 @@
     <style type="text/css">
         html{height:100%}
         body{height:100%;margin:0px;padding:0px}
-        #container{width:100%;height: 500px;}
+        #container{width:100%;height:100%;}
     </style>
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=dqQDIGUBKkxcLpKWgTOFHpjt"></script>
     <script type="text/javascript" src="lushu.js"></script>
-    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <!--<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>-->
     <style type="text/css">
         /*.BMap_bubble_pop{
             border-radius: 25px;
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<select id="day_select">
+<!--<select id="day_select">
     <option value = "1">第1天</option>
     <option value = "2">第2天</option>
     <option value = "3">第3天</option>
@@ -31,7 +31,7 @@
     <option value = "8">第8天</option>
     <option value = "9">第9天</option>
     <option value = "10">全程</option>
-</select>
+</select>-->
 <div id="container">
 
 </div>
@@ -171,11 +171,12 @@
             }
         }
     });
-    var start=new BMapGL.Point(90.918706,29.299495);
-    var end=new BMapGL.Point(91.140031,29.653516);
-    drv.search(start, end);
+
 
     function startLushu2() {
+        var start=new BMapGL.Point(90.918706,29.299495);
+        var end=new BMapGL.Point(91.140031,29.653516);
+        drv.search(start, end);
         //路书启动,参数为一个函数
         lushu2.start(function() {
             centerAndZoomSlow(91.140422,29.652606, 13, 18);
@@ -217,12 +218,62 @@
         lushu3.start(function() {
             centerAndZoomSlow(91.140031,29.653516, 18, 19);
             //lushu3 = null; //当前路书置空
+            startLushu4();
         });
     }
 
 
+    //第二天
+    var lushu4;
+    // 实例化一个驾车导航用来生成路线
+    var drv4 = new BMapGL.DrivingRoute('西藏', {
+        onSearchComplete: function(res4) {
+            if (drv4.getStatus() == BMAP_STATUS_SUCCESS) {
+                var plan4 = res4.getPlan(0);
+                var arrPois4 =[];
+                for(var j4=0;j4<plan4.getNumRoutes();j4++){
+                    var route4 = plan4.getRoute(j4);
+                    arrPois4= arrPois4.concat(route4.getPath());
+                }
+                map.addOverlay(new BMapGL.Polyline(arrPois4, {strokeColor: '#FF8C00','strokeWeight': 3}));
+                map.setViewport(arrPois4);
+                var car4 = car;
+                lushu4 = new BMapGLLib.LuShu(map,arrPois4,{
+                    defaultContent:"冲冲冲",
+                    autoView:true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
+                    icon  : new BMapGL.Icon(car4, new BMapGL.Size(30,30),{anchor : new BMapGL.Size(24, 24)}),
+                    speed: 15000,
+                    enableRotation:true,//是否设置marker随着道路的走向进行旋转
+                    landmarkPois: [
+                        {lng:92.351931,lat:29.830882,html:'(day2)到达：米拉山口',pauseTime:2},
+                    ]});
+
+
+
+
+            }
+        }
+    });
+
+
+    function startLushu4() {
+        var start4=new BMapGL.Point(91.140031,29.653516);
+        var end4=new BMapGL.Point(92.351931,29.830882);
+        drv4.search(start4, end4);
+
+        //路书启动,参数为一个函数
+        lushu4.start(function() {
+            centerAndZoomSlow(91.140422,29.652606, 19, 13);
+        });
+    }
+
+
+
+
+
     /*脚本开始*/
-    var day = $("#day_select").find("option:selected").val();
+    setTimeout('startLushu3()', 3000);
+    /*var day = $("#day_select").find("option:selected").val();
 
     $('#day_select').change(function(){
         day = $("#day_select").find("option:selected").val();
@@ -238,14 +289,23 @@
             map.removeOverlay(polyline);
             startLushu();
         }
-    });
+    });*/
 
     /*公告的方法*/
     function centerAndZoomSlow(lng, lat, num_begin, num_end) {
         var point_slow = new BMapGL.Point(lng,lat);
-        for (var i=num_begin;i<=num_end;i=i+0.1){
-            map.centerAndZoom(point_slow, i);
+        if(num_begin < num_end){
+            for (var i=num_begin;i<=num_end;i=i+0.1){
+                map.centerAndZoom(point_slow, i);
+            }
         }
+
+        if(num_begin > num_end){
+            for (var i=num_end;i<=num_begin;i=i+0.1){
+                map.centerAndZoom(point_slow, i);
+            }
+        }
+
     }
 
 
