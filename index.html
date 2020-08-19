@@ -64,7 +64,7 @@
     var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
     map.addControl(scaleCtrl);
     var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
-    //map.addControl(zoomCtrl);
+    map.addControl(zoomCtrl);
 
     var opts_baiyun = {
         width: 300,     // 信息窗口宽度
@@ -78,11 +78,11 @@
         icon: icon_jichang,
         title: "广州白云机场",
     });
-    map.addOverlay(marker_baiyun);                     // 将标注添加到地图中
+    /*map.addOverlay(marker_baiyun);                     // 将标注添加到地图中
 
     marker_baiyun.addEventListener("click", function(){
         map.openInfoWindow(infoWindow_baiyun, point_baiyun);        // 打开信息窗口
-    });
+    });*/
 
 
 
@@ -120,19 +120,19 @@
             {lng:113.31249,lat:23.395899,html:'(day1)起点：广州白云国际机场1',pauseTime:8},
             {lng:113.312728,lat:23.395966,html:'(day1)起点：广州白云国际机场2',pauseTime:8},
             {lng:113.313348,lat:23.395804,html:'(day1)起点：广州白云国际机场3',pauseTime:8},
-            {lng:90.918706,lat:29.299495,html:'(day1)到达：拉萨贡嘎国际机场',pauseTime:3}
+            {lng:90.918706,lat:29.299495,html:'(day1)拉萨贡嘎国际机场',pauseTime:3}
         ]
     });
 
 
     function startLushu() {
-        map.addOverlay(polyline);  //显示飞行线路
+        //map.addOverlay(polyline);  //显示飞行线路
 
         //路书启动,参数为一个函数
         lushu.start(function() {
-            centerAndZoomSlow(90.918706,29.299495, 6, 13);
+            centerAndZoomSlow(90.918706,29.299495, 13);
             lushu = null; //当前路书置空
-            startLushu2();
+            setTimeout('startLushu2()', 1000);
 
         });
     }
@@ -156,34 +156,38 @@
                 map.setViewport(arrPois);
 
                 lushu2 = new BMapGLLib.LuShu(map,arrPois,{
-                    defaultContent:"冲冲冲",
+                    defaultContent:"第一天，冲冲冲",
                     autoView:true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
                     icon  : new BMapGL.Icon(car, new BMapGL.Size(30,30),{anchor : new BMapGL.Size(24, 24)}),
                     speed: 15000,
                     enableRotation:true,//是否设置marker随着道路的走向进行旋转
                     landmarkPois: [
                         {lng:91.140031,lat:29.653516,html:'住宿：拉萨风火水土藏式生活民宿',pauseTime:2},
-                        {lng:91.141549,lat:29.652559,html:'(day1)到达：民宿外面-江苏路',pauseTime:2},
+                        {lng:91.141549,lat:29.652559,html:'(day1)拉萨市城关区',pauseTime:2},
+                        {lng:91.140988,lat:29.652539,html:'(day1)拉萨市城关区',pauseTime:2},
                     ]});
 
 
-                //路书启动,参数为一个函数
-                lushu2.start(function() {
-                    centerAndZoomSlow(91.140422,29.652606, 13, 18);
-                    lushu2 = null; //当前路书置空
-                    startLushu3();
-                });
+
 
             }
         }
     });
 
-
+    var start=new BMapGL.Point(90.918706,29.299495);
+    var end=new BMapGL.Point(91.140031,29.653516);
+    drv.search(start, end);
 
     function startLushu2() {
-        var start=new BMapGL.Point(90.918706,29.299495);
-        var end=new BMapGL.Point(91.140031,29.653516);
-        drv.search(start, end);
+
+
+        //路书启动,参数为一个函数
+        lushu2.start(function() {
+            centerAndZoomSlow(91.141549,29.652559, 16);
+            lushu2 = null; //当前路书置空
+            setTimeout('startLushu3()', 1000);
+        });
+
 
 
     }
@@ -212,16 +216,17 @@
         speed: 150,  //覆盖物移动速度，单位米/秒
         enableRotation: true,
         landmarkPois:[
-            {lng:91.140031,lat:29.653516,html:'(day1)到达：拉萨风火水土藏式生活民宿',pauseTime:2}
+            {lng:91.140031,lat:29.653516,html:'(day1)拉萨风火水土藏式生活民宿',pauseTime:2}
         ]
     });
 
 
     function startLushu3() {
+        setTimeout('centerAndZoomSlow(91.140031,29.653516, 19)', 1000);
         lushu3.start(function() {
-            centerAndZoomSlow(91.140031,29.653516, 18, 19);
+            drv = null;
             lushu3 = null; //当前路书置空
-            startLushu4();
+            setTimeout('startLushu4()', 1000);
         });
     }
 
@@ -240,22 +245,27 @@
                 }
                 map.addOverlay(new BMapGL.Polyline(arrPois4, {strokeColor: '#FF8C00','strokeWeight': 3}));
                 map.setViewport(arrPois4);
+
                 lushu4 = new BMapGLLib.LuShu(map,arrPois4,{
-                    defaultContent:"冲冲冲",
+                    defaultContent:"第二天，冲冲冲",
                     autoView:true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
                     icon  : new BMapGL.Icon(car4, new BMapGL.Size(30,30),{anchor : new BMapGL.Size(24, 24)}),
-                    speed: 10000,
+                    speed: 30000,
                     enableRotation:true,//是否设置marker随着道路的走向进行旋转
                     landmarkPois: [
-                        {lng:92.352021,lat:29.830096,html:'(day2)到达：米拉山口',pauseTime:2},
+                        {lng:92.352021,lat:29.830096,html:'(day2)米拉山口',pauseTime:1},
+                        {lng:92.368047,lat:29.828266,html:'(day2)米拉山口',pauseTime:1},
+                        {lng:92.353256,lat:29.829797,html:'(day2)米拉山口',pauseTime:1},
+                        {lng:92.355497,lat:29.829272,html:'(day2)米拉山口',pauseTime:1},
                     ]});
 
-                    centerAndZoomSlow(91.140031,29.653516, 19, 12);
-                    //路书启动,参数为一个函数
-                    lushu4.start(function() {
-                        centerAndZoomSlow(91.140422,29.652606, 12, 19);
-                        lushu4 = null;
-                    });
+                centerAndZoomSlow(91.140031,29.653516, 10);
+                //路书启动,参数为一个函数
+                lushu4.start(function() {
+                    centerAndZoomSlow(92.351931,29.830882, 13);
+                    drv4 = null;
+                    lushu4 = null;
+                });
 
             }
         }
@@ -264,9 +274,14 @@
 
 
     function startLushu4() {
+
+
         var start4=new BMapGL.Point(91.140031,29.653516);
         var end4=new BMapGL.Point(92.351931,29.830882);
         drv4.search(start4, end4);
+
+
+
 
 
     }
@@ -276,7 +291,7 @@
 
 
     /*脚本开始*/
-    setTimeout('startLushu()', 3000);
+    setTimeout('startLushu()', 5000);
     /*var day = $("#day_select").find("option:selected").val();
 
     $('#day_select').change(function(){
@@ -296,7 +311,8 @@
     });*/
 
     /*公告的方法*/
-    function centerAndZoomSlow(lng, lat, num_begin, num_end) {
+    function centerAndZoomSlow(lng, lat, num_end) {
+        var num_begin = map.getZoom();
         var point_slow = new BMapGL.Point(lng,lat);
         if(num_begin < num_end){
             for (var i=num_begin;i<=num_end;i=i+0.1){
