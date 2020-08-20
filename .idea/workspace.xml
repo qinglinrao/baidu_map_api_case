@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d8d5f51-9448-459c-87d3-0c0cd4d29ecd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -52,34 +51,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="952" />
-          <entry key="js" value="1220" />
+          <entry key="html" value="962" />
+          <entry key="js" value="1319" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="952" />
-          <entry key="JavaScript" value="1220" />
+          <entry key="HTML" value="962" />
+          <entry key="JavaScript" value="1319" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3751">
-              <caret line="246" column="5" lean-forward="true" selection-start-line="134" selection-start-column="3" selection-end-line="246" selection-end-column="5" />
+            <state relative-caret-position="17">
+              <caret line="121" column="15" lean-forward="true" selection-start-line="121" selection-start-column="15" selection-end-line="121" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-70">
-              <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
+            <state relative-caret-position="395">
+              <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -124,9 +123,9 @@
       <find>drv_polyline</find>
       <find>routeDrive</find>
       <find>polyline_path</find>
-      <find>lushu2</find>
-      <find>icon</find>
       <find>startLushu5</find>
+      <find>icon</find>
+      <find>lushu2</find>
     </findStrings>
     <replaceStrings>
       <replace>, 1000</replace>
@@ -143,8 +142,8 @@
         <option value="&lt;38d99adb-a611-450b-acc5-02f2af25cc5f&gt;/index.html" />
         <option value="&lt;38d99adb-a611-450b-acc5-02f2af25cc5f&gt;/lushu.js" />
         <option value="$PROJECT_DIR$/lushu.js" />
-        <option value="$PROJECT_DIR$/common.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/common.js" />
       </list>
     </option>
   </component>
@@ -245,12 +244,12 @@
       <workItem from="1597825477763" duration="9071000" />
       <workItem from="1597846065058" duration="4877000" />
       <workItem from="1597888119846" duration="25072000" />
-      <workItem from="1597934590985" duration="3319000" />
+      <workItem from="1597934590985" duration="4213000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51131000" />
+    <option name="totallyTimeSpent" value="52025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -346,17 +345,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
+        <state relative-caret-position="17">
+          <caret line="121" column="15" lean-forward="true" selection-start-line="121" selection-start-column="15" selection-end-line="121" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3751">
-          <caret line="246" column="5" lean-forward="true" selection-start-line="134" selection-start-column="3" selection-end-line="246" selection-end-column="5" />
+        <state relative-caret-position="395">
+          <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
         </state>
       </provider>
     </entry>

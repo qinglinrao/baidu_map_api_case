@@ -76,6 +76,7 @@ function routeDrive(icon2=car, speed2=3000, position2={}, strokeColor2="#000000"
 
 
     var arrPois=[];
+    var lushu2;
     // 实例化一个驾车导航用来生成路线
     var drv = new BMapGL.DrivingRoute('西藏', {
         onSearchComplete: function(res) {
@@ -90,9 +91,22 @@ function routeDrive(icon2=car, speed2=3000, position2={}, strokeColor2="#000000"
                     map.setViewport(arrPois);
                 }
 
-                //postion和isShow默认传false，驾车线路不从route方法生成
-                return route(icon2, speed2, false, strokeColor2, strokeWeight2, defaultContent2, false, landmarkPois2, arrPois);
-             }
+                lushu2 = new BMapGLLib.LuShu(map, arrPois, {
+                    defaultContent:defaultContent2, //汽车头上标题
+                    geodesic: true,
+                    autoCenter: true,
+                    icon: new BMapGL.Icon(icon2, new BMapGL.Size(30, 30), { anchor: new BMapGL.Size(24, 24) }), //飞机尺寸
+                    speed: speed2,  //覆盖物移动速度，单位米/秒
+                    enableRotation: true,
+                    landmarkPois:landmarkPois2
+                });
+
+                lushu2.start(function () {
+                    alert('一定要在这里运行？')
+                });
+             }else{
+                alert(66);
+            }
         }
     });
 
