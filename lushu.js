@@ -250,6 +250,16 @@ var BMapGLLib = window.BMapGLLib = BMapGLLib || {};
      * @example <b>参考示例：</b><br />
      * lushu.start();
      */
+
+    //移除marker图标
+    LuShu.prototype.removeMark = function (){
+        /*移除图标！*/
+        if(this._marker)
+            this._map.removeOverlay(this._marker);
+        //移除之前的overlay
+        this._overlay && this._map.removeOverlay(this._overlay);
+        this._overlay._div.style.visibility = 'hidden';
+    };
     LuShu.prototype.start = function (_end_callback) {
         var me = this,
             len = me._path.length;
