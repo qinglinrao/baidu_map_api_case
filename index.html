@@ -119,14 +119,14 @@
 
     function startLushu2() {
 
-        var lushu2 = routeDrive(car, 30000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}]);
+        routeDrive(car, 30000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}],'startLushu3()');
 
         //路书启动,参数为一个函数
-        lushu2.start(function() {
+        /*lushu2.start(function() {
             centerAndZoomSlow(91.141549,29.652559, 15);
 
             setTimeout('startLushu3()', 1000);
-        });
+        });*/
 
 
 

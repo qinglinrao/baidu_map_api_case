@@ -71,7 +71,7 @@ function route(icon=car, speed=3000, position=false, strokeColor="#000000", stro
 }
 
 //驾车路线
-function routeDrive(icon2=car, speed2=3000, position2={}, strokeColor2="#000000", strokeWeight2=3, defaultContent2="", isShow2=true, landmarkPois2=[]){
+function routeDrive(icon2=car, speed2=3000, position2={}, strokeColor2="#000000", strokeWeight2=3, defaultContent2="", isShow2=true, landmarkPois2=[], run_func=false){
 
 
 
@@ -102,7 +102,12 @@ function routeDrive(icon2=car, speed2=3000, position2={}, strokeColor2="#000000"
                 });
 
                 lushu2.start(function () {
-                    alert('一定要在这里运行？')
+                    alert('一定要在这里运行？');
+                    if(run_func){
+                        //变量名当作方法运行？--todo
+                        //alert(run_func);
+                        eval(run_func);
+                    }
                 });
              }else{
                 alert(66);
