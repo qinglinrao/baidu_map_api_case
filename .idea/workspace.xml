@@ -30,11 +30,12 @@
     <session id="641412218">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -51,37 +52,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="889" />
-          <entry key="js" value="873" />
+          <entry key="html" value="952" />
+          <entry key="js" value="1220" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="889" />
-          <entry key="JavaScript" value="873" />
+          <entry key="HTML" value="952" />
+          <entry key="JavaScript" value="1220" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="115" column="37" lean-forward="true" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="37" />
-              <folding>
-                <element signature="e#19279#20943#0" />
-              </folding>
+            <state relative-caret-position="3751">
+              <caret line="246" column="5" lean-forward="true" selection-start-line="134" selection-start-column="3" selection-end-line="246" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+            <state relative-caret-position="-70">
+              <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -90,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/lushu.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="262" column="54" selection-start-line="262" selection-start-column="54" selection-end-line="262" selection-end-column="54" />
+              <caret line="692" column="43" selection-start-line="692" selection-start-column="24" selection-end-line="692" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -99,36 +97,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>尼洋河</find>
-      <find>360</find>
-      <find>speed</find>
-      <find>centerAndZoomSlow</find>
-      <find>.js</find>
-      <find>[]</find>
-      <find>t</find>
-      <find>3</find>
-      <find>car4</find>
-      <find>lushu</find>
-      <find>position</find>
       <find>landmarkPois</find>
-      <find>map</find>
       <find>BMapGLLib.LuShu</find>
       <find>isShow</find>
-      <find>startLushu2</find>
       <find>startLushu</find>
       <find>return</find>
       <find>res</find>
       <find>drv</find>
-      <find>route_drv</find>
       <find>routeDrive2</find>
-      <find>calcGreatCirclePath</find>
       <find>defaultContent2</find>
-      <find>lushu2</find>
-      <find>arrPois</find>
       <find>polyline</find>
-      <find>routeDrive</find>
+      <find>function (</find>
+      <find>map</find>
+      <find>initialize</find>
       <find>route(</find>
+      <find>startLushu2</find>
+      <find>arrPois</find>
+      <find>route_drv</find>
+      <find>function</find>
+      <find>calcGreatCirclePath</find>
+      <find>map.addOverlay</find>
       <find>alert</find>
+      <find>position</find>
+      <find>start</find>
+      <find>speed</find>
+      <find>drv_polyline</find>
+      <find>routeDrive</find>
+      <find>polyline_path</find>
+      <find>lushu2</find>
+      <find>icon</find>
+      <find>startLushu5</find>
     </findStrings>
     <replaceStrings>
       <replace>, 1000</replace>
@@ -145,8 +143,8 @@
         <option value="&lt;38d99adb-a611-450b-acc5-02f2af25cc5f&gt;/index.html" />
         <option value="&lt;38d99adb-a611-450b-acc5-02f2af25cc5f&gt;/lushu.js" />
         <option value="$PROJECT_DIR$/lushu.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/common.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -246,12 +244,13 @@
       <workItem from="1572234191415" duration="1256000" />
       <workItem from="1597825477763" duration="9071000" />
       <workItem from="1597846065058" duration="4877000" />
-      <workItem from="1597888119846" duration="24375000" />
+      <workItem from="1597888119846" duration="25072000" />
+      <workItem from="1597934590985" duration="3319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47115000" />
+    <option name="totallyTimeSpent" value="51131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -343,24 +342,21 @@
     <entry file="file://$PROJECT_DIR$/lushu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="262" column="54" selection-start-line="262" selection-start-column="54" selection-end-line="262" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="115" column="37" lean-forward="true" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="37" />
-          <folding>
-            <element signature="e#19279#20943#0" />
-          </folding>
+          <caret line="692" column="43" selection-start-line="692" selection-start-column="24" selection-end-line="692" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        <state relative-caret-position="-70">
+          <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3751">
+          <caret line="246" column="5" lean-forward="true" selection-start-line="134" selection-start-column="3" selection-end-line="246" selection-end-column="5" />
         </state>
       </provider>
     </entry>

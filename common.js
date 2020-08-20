@@ -26,7 +26,7 @@ var position = {
 };
 
 //飞行或者步行路线
-function route(icon=car, speed=3000, position={}, strokeColor="#000000", strokeWeight=3, defaultContent="", isShow=true, landmarkPois=[], drv_polyline=false){
+function route(icon=car, speed=3000, position=false, strokeColor="#000000", strokeWeight=3, defaultContent="", isShow=true, landmarkPois=[], drv_polyline=false){
     var lushu;
     var polyline;
     var polyline_path;
@@ -71,34 +71,37 @@ function route(icon=car, speed=3000, position={}, strokeColor="#000000", strokeW
 }
 
 //驾车路线
-function routeDrive(strokeColor2, strokeWeight2=3, isShow2=true){
+function routeDrive(icon2=car, speed2=3000, position2={}, strokeColor2="#000000", strokeWeight2=3, defaultContent2="", isShow2=true, landmarkPois2=[]){
+
+
 
     var arrPois=[];
     // 实例化一个驾车导航用来生成路线
-    var route_drv = new BMapGL.DrivingRoute('西藏', {
+    var drv = new BMapGL.DrivingRoute('西藏', {
         onSearchComplete: function(res) {
-            if (route_drv.getStatus() == BMAP_STATUS_SUCCESS) {
+            if (drv.getStatus() == BMAP_STATUS_SUCCESS) {
                 var plan = res.getPlan(0);
                 for(var j=0;j<plan.getNumRoutes();j++){
-                    var route = plan.getRoute(j);
-                    arrPois= arrPois.concat(route.getPath());
+                    //var route = plan.getRoute(j);
+                    arrPois= arrPois.concat(plan.getRoute(j).getPath());
                 }
                 map.addOverlay(new BMapGL.Polyline(arrPois, {strokeColor: strokeColor2,'strokeWeight': strokeWeight2}));
                 if(isShow2){
                     map.setViewport(arrPois);
                 }
+
+                //postion和isShow默认传false，驾车线路不从route方法生成
+                return route(icon2, speed2, false, strokeColor2, strokeWeight2, defaultContent2, false, landmarkPois2, arrPois);
              }
         }
     });
 
-    return {route_drv:route_drv, arrPois: arrPois};
-}
-
-function routeDriveSearch(drv, position){
-    var start=new BMapGL.Point(position["begin_lng"],position["begin_lat"]); //起点坐标
-    var end=new BMapGL.Point(position["end_lng"], position["end_lat"]);  //终点坐标
+    //查找驾车线路
+    var start=new BMapGL.Point(position2["begin_lng"],position2["begin_lat"]); //起点坐标
+    var end=new BMapGL.Point(position2["end_lng"], position2["end_lat"]);  //终点坐标
     drv.search(start, end);
 }
+
 
 var cat = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAAgCAYAAAC2COBlAAAC10lEQVRYR+1Yz2sTQRR+01AxsSSYRgy2lWCqIjTagiRIL+lBUEFbC/4H9lRT8JRrjtZjUvTgUa/G6MEevOTSQzxYGwNW24C02kZIW1L6A5Qy8g1u2CS73V3d3SjsQGDYebPvfe/73pvZsHvzL1IdjF3jRDH6d8dTIpbLDI5mjYTIEgu5V8TpppFN7bBlnB6lh8Ymjfhmifc5bmRDG23zmcGxESP+HXBGsmWhrcOcPLm6ZHm2K0Bahfltv0b7Bz9ViYv5T4u1wubKn5JrDXPpS6OkFrzb1Uk9bh9lynO0tFNVDXwqPEywfb5WarBBQvBuHcNacHsKzHgMgOvvCrRgWN6pUro8pwMbWQcOctr8sdcShP+IhyA5Pcxhs04gSmCtAQdJSQNg8EPG5QNyk8sLUh0/NVA36XX7xPxrkwSRFJ3DXHBoJP3Huht8S0wpMbm8u1GvO+xNhIdp9vsnxdi7Oz0U9ffR1MJLndhMlqUAp1AnatGATampSODUgtdaV/BhLnOSA8hSC2QzCCl4tRrrPeql8Z5I+5iTg1va3aDZymJLQtUYkJ5raa5tsvxb5rAfMsX5hvMM9Yo5Gg/maDLF2roWfmndGlkikOsnz1N2rSSCxKEudbmIN0jF7UpL90xduEqFrVURfPJcnJKl1wQ274aiYg5gaDhaR4gMubng0M7jgTPiHPtQq1C+WhbXMNQggsKhPhIIU8QXFKDRGdFFUUux432U+vhGPJ8euCESgzX5HHYXvUGa/pw/9Or2G6D54BB8YWtFyAvBACxk9eTL2/qhDqnFT4TFczAFO3ROSXIToRgVt9frwEUiKotCohOhKD1bnVe8IDTp1VxweovBJjsHnDzRuj55bGJGy43DXCNz/8m/X5zzhzNDt5Na9DaAm3yXveJyddznnO4Y2WirLWeP2QF7kL58y9BnPLM1SJudOeBsTrhp7hzmTEulzS9ymLM54aa5+wV2TJcwUz5FeQAAAABJRU5ErkJggg==";
 var fly = 'data:image/png;base64,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';
