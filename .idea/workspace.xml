@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d8d5f51-9448-459c-87d3-0c0cd4d29ecd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lushu.js" beforeDir="false" afterPath="$PROJECT_DIR$/lushu.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,13 +49,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="558" />
+          <entry key="html" value="597" />
           <entry key="js" value="146" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="558" />
+          <entry key="HTML" value="597" />
           <entry key="JavaScript" value="146" />
         </counts>
       </usages-collector>
@@ -68,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="327" lean-forward="true" selection-start-line="327" selection-end-line="327" />
+            <state relative-caret-position="44">
+              <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
             </state>
           </provider>
         </entry>
@@ -87,7 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pause</find>
       <find>120</find>
       <find>_path</find>
       <find>_path.length</find>
@@ -115,8 +112,9 @@
       <find>92.351931,29.830882</find>
       <find>startLushu5</find>
       <find>尼洋河</find>
-      <find>centerAndZoomSlow</find>
       <find>360</find>
+      <find>alert</find>
+      <find>centerAndZoomSlow</find>
     </findStrings>
     <replaceStrings>
       <replace>, 1000</replace>
@@ -211,12 +209,12 @@
       <workItem from="1572234191415" duration="1256000" />
       <workItem from="1597825477763" duration="9071000" />
       <workItem from="1597846065058" duration="4877000" />
-      <workItem from="1597888119846" duration="7402000" />
+      <workItem from="1597888119846" duration="9621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30142000" />
+    <option name="totallyTimeSpent" value="32361000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -314,8 +312,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="327" lean-forward="true" selection-start-line="327" selection-end-line="327" />
+        <state relative-caret-position="44">
+          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
         </state>
       </provider>
     </entry>

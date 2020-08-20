@@ -32,9 +32,17 @@
     <option value = "9">第9天</option>
     <option value = "10">全程</option>
 </select>-->
+<!--
+<iframe src="http://raoql.top" width="200" height="200">
+
+</iframe>
+-->
+
+
 <div id="container">
 
 </div>
+
 
 
 <script type="text/javascript">
@@ -235,15 +243,15 @@
     // 实例化一个驾车导航用来生成路线
     var drv4 = new BMapGL.DrivingRoute('西藏', {
         onSearchComplete: function(res4) {
-            if (drv4.getStatus() == BMAP_STATUS_SUCCESS) {alert(1);
+            if (drv4.getStatus() == BMAP_STATUS_SUCCESS) {
                 var plan4 = res4.getPlan(0);
                 var arrPois4 =[];
                 for(var j4=0;j4<plan4.getNumRoutes();j4++){
                     var route4 = plan4.getRoute(j4);
                     arrPois4= arrPois4.concat(route4.getPath());
-                }alert(arrPois4);
+                }
                 map.addOverlay(new BMapGL.Polyline(arrPois4, {strokeColor: '#FF8C00','strokeWeight': 3}));
-                map.setViewport(arrPois4);alert(3);
+                map.setViewport(arrPois4);
 
                 lushu4 = new BMapGLLib.LuShu(map,arrPois4,{
                     defaultContent:"第2天：前往米拉山口",
@@ -303,7 +311,7 @@
                     speed: 30000,
                     enableRotation:true,//是否设置marker随着道路的走向进行旋转
                     landmarkPois: [
-                        {lng:93.06344020127541,lat:30.00001073050791,html:'(day2)到达：尼洋河附近',pauseTime:1},
+                        {lng:93.06344020127541,lat:30.00001073050791,html:'(day2)到达：尼洋河（就是左边那条河）',pauseTime:1},
                     ]});
 
                 centerAndZoomSlow(92.351931,29.830882, 10);
@@ -337,8 +345,8 @@
 
 
     /*脚本开始*/
-    centerAndZoomSlow(91.140031,29.653516, 14);  //一定要拉近镜头 不然汽车跑不动
-    setTimeout('startLushu4()', 1000);
+    //centerAndZoomSlow(91.140031,29.653516, 14);  //一定要拉近镜头 不然汽车跑不动
+    setTimeout('startLushu()', 1000);
     /*var day = $("#day_select").find("option:selected").val();
 
     $('#day_select').change(function(){
@@ -359,7 +367,7 @@
 
     /*公告的方法*/
     function centerAndZoomSlow(lng, lat, num_end) {
-        alert(1);//一定要拉近镜头 不然汽车跑不动
+        //alert(1);//一定要拉近镜头 不然汽车跑不动
         var num_begin = map.getZoom();
         var point_slow = new BMapGL.Point(lng,lat);
         if(num_begin < num_end){
