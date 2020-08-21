@@ -1,0 +1,12 @@
+.idea/*
+attachment/images/*
+addons/ewei_shop/data/cache/*
+addons/ewei_shop/data/tmp/*
+*.log
+*.jpg
+*.tpl.php
+*.mp3
+*.csv
+*.txt
+plugins
+data/*
