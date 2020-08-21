@@ -12,6 +12,7 @@
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=dqQDIGUBKkxcLpKWgTOFHpjt"></script>
     <script type="text/javascript" src="lushu.js?a=5"></script>
     <script type="text/javascript" src="common.js?b=5"></script>
+    <script type="text/javascript" src="init.js?b=5"></script>
     <!--<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>-->
     <style type="text/css">
         /*.BMap_bubble_pop{
@@ -68,24 +69,8 @@
     var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
     //map.addControl(zoomCtrl);
 
-    var opts_baiyun = {
-        width: 300,     // 信息窗口宽度
-        height: 0,    // 信息窗口高度
-        title: "Day1(10-04)：广州白云国际机场"  // 信息窗口标题
-    };
-    var infoWindow_baiyun = new BMapGL.InfoWindow("广州白云国际机场，位于中国广东省广州市白云区人和镇和花都区新华街道、花东镇交界处，距广州市中心约28公里，为4F级民用国际机场，是中国三大门户复合枢纽机场之一，世界前五十位主要机场。", opts_baiyun);  // 创建信息窗口对象
-    var point_baiyun= new BMapGL.Point(113.314282,23.395352);
-    var icon_jichang = new BMapGL.Icon(cat, new BMapGL.Size(24, 24), { anchor: new BMapGL.Size(24, 24) });
-    var marker_baiyun = new BMapGL.Marker(point_baiyun,{
-        icon: icon_jichang,
-        title: "广州白云机场",
-    });
-    /*map.addOverlay(marker_baiyun);                     // 将标注添加到地图中
 
-    marker_baiyun.addEventListener("click", function(){
-        map.openInfoWindow(infoWindow_baiyun, point_baiyun);        // 打开信息窗口
-    });*/
-
+    showTextAll();
 
 
     /*返回点击的坐标信息*/
@@ -111,17 +96,15 @@
 
 
     function startLushu2() {
-
         routeDrive(car, 15000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}],'startLushu3()');
-
-
-
     }
 
-    var lushu3 = route(ufo, 50, {"begin_lng": 91.140422, "begin_lat": 29.652606, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 3, "第1天：前往住宿地点", true, [{lng:91.140031,lat:29.653516,html:'(day1)拉萨风火水土藏式生活民宿',pauseTime:1}]);
+
 
 
     function startLushu3() {
+        var lushu3 = route(ufo, 50, {"begin_lng": 91.140422, "begin_lat": 29.652606, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 3, "第1天：前往住宿地点", true, [{lng:91.140031,lat:29.653516,html:'(day1)拉萨风火水土藏式生活民宿',pauseTime:1}]);
+
         centerAndZoomSlow(91.140031,29.653516, 18);
         lushu3.start(function() {
             setTimeout('startLushu4()', 1000);
@@ -136,10 +119,7 @@
     }
 
     function startLushu5() {
-
-        routeDrive(car, 15000, {"begin_lng": 92.351931, "begin_lat": 29.830882, "end_lng": 93.094412, "end_lat": 29.999537}, '#FF8C00', 2, "第2天：前往尼洋河", true, [{lng:93.06344020127541,lat:30.00001073050791,html:'(day2)到达：尼洋河（就是左边那条河）',pauseTime:1}],'startLushu6()');
-
-
+         routeDrive(car, 15000, {"begin_lng": 92.351931, "begin_lat": 29.830882, "end_lng": 93.094412, "end_lat": 29.999537}, '#FF8C00', 2, "第2天：前往尼洋河", true, [{lng:93.06344020127541,lat:30.00001073050791,html:'(day2)到达：尼洋河（就是左边那条河）',pauseTime:1}],'startLushu6()');
     }
 
 
