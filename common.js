@@ -102,13 +102,14 @@ function routeDrive(icon2=car, speed2=3000, position2={}, strokeColor2="#000000"
                 });
 
                 lushu2.start(function () {
-                    alert('一定要在这里运行？');
                     if(run_func){
-                        //变量名当作方法运行？--todo
-                        //alert(run_func);
-                        eval(run_func);
+                        lushu2.removeMark(); //删除前一个的覆盖物
+                        eval(run_func); //执行下一个方法
+
                     }
                 });
+
+                return lushu2;
              }else{
                 alert(66);
             }

@@ -55,7 +55,7 @@
     // 创建地图实例
     var point = new BMapGL.Point(113.314282,23.395352);
     // 创建点坐标
-    map.centerAndZoom(point, 4);
+    map.centerAndZoom(point, 5);
     // 初始化地图，设置中心点坐标和地图级别
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 
@@ -94,7 +94,7 @@
     }
     //map.addEventListener("click", showInfo);
 
-    var lushu = route(fly, 1000000, {"begin_lng": 113.314282, "begin_lat": 23.395352, "end_lng": 90.918706, "end_lat": 29.299495}, '#000000', 1, "第1天：坐飞机前往西藏", false, [{lng:90.918706,lat:29.299495,html:'(day1)拉萨贡嘎国际机场',pauseTime:3}]);
+    var lushu = route(fly, 700000, {"begin_lng": 113.314282, "begin_lat": 23.395352, "end_lng": 90.918706, "end_lat": 29.299495}, '#000000', 1, "第1天：坐飞机前往西藏", false, [{lng:90.918706,lat:29.299495,html:'(day1)拉萨贡嘎国际机场',pauseTime:3}]);
 
     function startLushu() {
 
@@ -108,140 +108,36 @@
     }
 
 
-    //var routeDrive2 = routeDrive(car, 30000, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}]);
-
-    /*var drv2 = routeDrive('#000000', 2, true);
-    routeDriveSearch(drv2.route_drv,{"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516});
-*/
-
-
 
 
     function startLushu2() {
 
-        routeDrive(car, 30000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}],'startLushu3()');
-
-        //路书启动,参数为一个函数
-        /*lushu2.start(function() {
-            centerAndZoomSlow(91.141549,29.652559, 15);
-
-            setTimeout('startLushu3()', 1000);
-        });*/
+        routeDrive(car, 15000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}],'startLushu3()');
 
 
 
     }
 
-    var lushu3 = route(ufo, 150, {"begin_lng": 91.140422, "begin_lat": 29.652606, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 3, "第1天：前往住宿地点", true, [{lng:91.140031,lat:29.653516,html:'(day1)拉萨风火水土藏式生活民宿',pauseTime:1}]);
+    var lushu3 = route(ufo, 50, {"begin_lng": 91.140422, "begin_lat": 29.652606, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 3, "第1天：前往住宿地点", true, [{lng:91.140031,lat:29.653516,html:'(day1)拉萨风火水土藏式生活民宿',pauseTime:1}]);
 
 
     function startLushu3() {
-        setTimeout('centerAndZoomSlow(91.140031,29.653516, 18)', 1000);
+        centerAndZoomSlow(91.140031,29.653516, 18);
         lushu3.start(function() {
-            lushu2.removeMark();
             setTimeout('startLushu4()', 1000);
         });
     }
 
 
     //第二天
-    var lushu4; //米拉山口
-    // 实例化一个驾车导航用来生成路线
-    var drv4 = new BMapGL.DrivingRoute('西藏', {
-        onSearchComplete: function(res4) {
-            if (drv4.getStatus() == BMAP_STATUS_SUCCESS) {
-                var plan4 = res4.getPlan(0);
-                var arrPois4 =[];
-                for(var j4=0;j4<plan4.getNumRoutes();j4++){
-                    var route4 = plan4.getRoute(j4);
-                    arrPois4= arrPois4.concat(route4.getPath());
-                }
-                map.addOverlay(new BMapGL.Polyline(arrPois4, {strokeColor: '#FF8C00','strokeWeight': 3}));
-                map.setViewport(arrPois4);
-
-                lushu4 = new BMapGLLib.LuShu(map,arrPois4,{
-                    defaultContent:"第2天：前往米拉山口",
-                    autoView:true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
-                    icon  : new BMapGL.Icon(car, new BMapGL.Size(30,30),{anchor : new BMapGL.Size(24, 24)}),
-                    speed: 60000,
-                    enableRotation:true,//是否设置marker随着道路的走向进行旋转
-                    landmarkPois: [
-                        {lng:92.352021,lat:29.830096,html:'(day2)到达：米拉山口',pauseTime:1},
-                        {lng:92.368047,lat:29.828266,html:'(day2)到达：米拉山口',pauseTime:1},
-                        {lng:92.36998200946425,lat:29.82764890641419,html:'(day2)到达：米拉山口',pauseTime:1},
-                        {lng:92.372929,lat:29.826029,html:'(day2)到达：米拉山口',pauseTime:1},
-                    ]});
-
-                centerAndZoomSlow(91.140031,29.653516, 10);
-                //路书启动,参数为一个函数
-                lushu4.start(function() {
-                    centerAndZoomSlow(92.351931,29.830882, 14);
-                    startLushu5();
-                });
-
-            }
-        }
-    });
-
     function startLushu4() {
-
-
-        var start4=new BMapGL.Point(91.140031,29.653516);
-        var end4=new BMapGL.Point(92.351931,29.830882);
-        drv4.search(start4, end4);
-
-
-
-
+        routeDrive(car, 15000, {"begin_lng": 91.140031, "begin_lat": 29.653516, "end_lng": 92.351931, "end_lat": 29.830882}, '#FF8C00', 2, "第2天：前往米拉山口", true, [{lng:92.36998200946425,lat:29.82764890641419,html:'(day2)到达：米拉山口',pauseTime:1}],'startLushu5()');
 
     }
 
-    var lushu5; //尼洋河
-    // 实例化一个驾车导航用来生成路线
-    var drv5 = new BMapGL.DrivingRoute('西藏', {
-        onSearchComplete: function(res5) {
-            if (drv5.getStatus() == BMAP_STATUS_SUCCESS) {
-                var plan5 = res5.getPlan(0);
-                var arrPois5 =[];
-                for(var j5=0;j5<plan5.getNumRoutes();j5++){
-                    var route5 = plan5.getRoute(j5);
-                    arrPois5= arrPois5.concat(route5.getPath());
-                }
-                map.addOverlay(new BMapGL.Polyline(arrPois5, {strokeColor: '#FF8C00','strokeWeight': 3}));
-                map.setViewport(arrPois5);
-
-                lushu5 = new BMapGLLib.LuShu(map,arrPois5,{
-                    defaultContent:"第2天：前往尼洋河",
-                    autoView:true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
-                    icon  : new BMapGL.Icon(car, new BMapGL.Size(30,30),{anchor : new BMapGL.Size(24, 24)}),
-                    speed: 30000,
-                    enableRotation:true,//是否设置marker随着道路的走向进行旋转
-                    landmarkPois: [
-                        {lng:93.06344020127541,lat:30.00001073050791,html:'(day2)到达：尼洋河（就是左边那条河）',pauseTime:1},
-                    ]});
-
-                centerAndZoomSlow(92.351931,29.830882, 10);
-                //路书启动,参数为一个函数
-                lushu5.start(function() {
-                    centerAndZoomSlow(93.094412,29.999537, 13);
-                    startLushu6();
-                });
-
-            }
-        }
-    });
-
     function startLushu5() {
 
-
-        var start5=new BMapGL.Point(92.351931,29.830882);
-        var end5=new BMapGL.Point(93.094412,29.999537);
-        drv5.search(start5, end5);
-
-        lushu4.removeMark();
-
-
-
+        routeDrive(car, 15000, {"begin_lng": 92.351931, "begin_lat": 29.830882, "end_lng": 93.094412, "end_lat": 29.999537}, '#FF8C00', 2, "第2天：前往尼洋河", true, [{lng:93.06344020127541,lat:30.00001073050791,html:'(day2)到达：尼洋河（就是左边那条河）',pauseTime:1}],'startLushu6()');
 
 
     }

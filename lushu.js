@@ -674,7 +674,7 @@ var BMapGLLib = window.BMapGLLib = BMapGLLib || {};
                 if (!t[i].bShow) {
                     distance = this._map.getDistance(new BMapGL.Point(t[i].lng, t[i].lat), markerPoi);
                     //两点距离小于10米，认为是同一个点
-                    if (distance < 10) {
+                    if (distance < 30) {
                         t[i].bShow = true;
                         return i;
                     }
