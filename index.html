@@ -3,153 +3,26 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>西藏之旅github</title>
+    <title>Hello, World</title>
     <style type="text/css">
         html{height:100%}
         body{height:100%;margin:0px;padding:0px}
-        #container{width:100%;height:100%;}
+        #container{height:100%}
     </style>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=GbOnD1tgWn5HLjLbpdOGCPENLoS46fl0"></script>
-    <script type="text/javascript" src="lushu.js?a=5"></script>
-    <script type="text/javascript" src="common.js?b=5"></script>
-    <script type="text/javascript" src="init.js?b=5"></script>
-    <!--<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>-->
-    <style type="text/css">
-        /*.BMap_bubble_pop{
-            border-radius: 25px;
-        }*/
-    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=GbOnD1tgWn5HLjLbpdOGCPENLoS46fl0">
+        //v3.0版本的引用方式：src="http://api.map.baidu.com/api?v=3.0&ak=您的密钥"
+    </script>
 </head>
 
 <body>
-<!--<select id="day_select">
-    <option value = "1">第1天</option>
-    <option value = "2">第2天</option>
-    <option value = "3">第3天</option>
-    <option value = "4">第4天</option>
-    <option value = "5">第5天</option>
-    <option value = "6">第6天</option>
-    <option value = "7">第7天</option>
-    <option value = "8">第8天</option>
-    <option value = "9">第9天</option>
-    <option value = "10">全程</option>
-</select>-->
-<!--
-<iframe src="http://raoql.top" width="200" height="200">
-
-</iframe>
--->
-
-
-<div id="container">
-
-</div>
-
-
-
+<div id="container"></div>
 <script type="text/javascript">
-
-
-
-
-    var map = new BMapGL.Map("container");
+    var map = new BMap.Map("container");
     // 创建地图实例
-    var point = new BMapGL.Point(113.314282,23.395352);
+    var point = new BMap.Point(116.404, 39.915);
     // 创建点坐标
-    map.centerAndZoom(point, 5);
+    map.centerAndZoom(point, 15);
     // 初始化地图，设置中心点坐标和地图级别
-    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-
-    //map.setHeading(64.5);   //设置地图旋转角度
-    //map.setTilt(45);       //设置地图的倾斜角度
-    map.setMapType(BMAP_EARTH_MAP);      // 设置地图类型为地球模式
-
-    var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
-    map.addControl(scaleCtrl);
-    var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
-    //map.addControl(zoomCtrl);
-
-
-    showTextAll();
-
-
-    /*返回点击的坐标信息*/
-    function showInfo(e){
-        alert(e.latlng.lng + ", " + e.latlng.lat);
-    }
-    //map.addEventListener("click", showInfo);
-
-    var lushu = route(fly, 700000, {"begin_lng": 113.314282, "begin_lat": 23.395352, "end_lng": 90.918706, "end_lat": 29.299495}, '#000000', 1, "第1天：坐飞机前往西藏", false, [{lng:90.918706,lat:29.299495,html:'(day1)拉萨贡嘎国际机场',pauseTime:3}]);
-
-    function startLushu() {
-
-        //路书启动,参数为一个函数
-        lushu.start(function() {
-            centerAndZoomSlow(90.918706,29.299495, 12);
-            lushu = null; //当前路书置空
-            setTimeout('startLushu2()', 1000);
-
-        });
-    }
-
-
-
-
-    function startLushu2() {
-        routeDrive(car, 15000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}],'startLushu3()');
-    }
-
-
-
-
-    function startLushu3() {
-        var lushu3 = route(ufo, 50, {"begin_lng": 91.140422, "begin_lat": 29.652606, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 3, "第1天：前往住宿地点", true, [{lng:91.140031,lat:29.653516,html:'(day1)拉萨风火水土藏式生活民宿',pauseTime:1}]);
-
-        centerAndZoomSlow(91.140031,29.653516, 18);
-        lushu3.start(function() {
-            setTimeout('startLushu4()', 1000);
-        });
-    }
-
-
-    //第二天
-    function startLushu4() {
-        routeDrive(car, 15000, {"begin_lng": 91.140031, "begin_lat": 29.653516, "end_lng": 92.351931, "end_lat": 29.830882}, '#FF8C00', 2, "第2天：前往米拉山口", true, [{lng:92.36998200946425,lat:29.82764890641419,html:'(day2)到达：米拉山口',pauseTime:1}],'startLushu5()');
-
-    }
-
-    function startLushu5() {
-         routeDrive(car, 15000, {"begin_lng": 92.351931, "begin_lat": 29.830882, "end_lng": 93.094412, "end_lat": 29.999537}, '#FF8C00', 2, "第2天：前往尼洋河", true, [{lng:93.06344020127541,lat:30.00001073050791,html:'(day2)到达：尼洋河（就是左边那条河）',pauseTime:1}],'startLushu6()');
-    }
-
-
-
-
-
-    /*脚本开始*/
-    //centerAndZoomSlow(91.140031,29.653516, 14);  //一定要拉近镜头 不然汽车跑不动
-    setTimeout('startLushu()', 1000);
-    /*var day = $("#day_select").find("option:selected").val();
-
-    $('#day_select').change(function(){
-        day = $("#day_select").find("option:selected").val();
-        var point_new = new BMapGL.Point(113.314282,23.395352);
-        map.centerAndZoom(point_new, 5);
-        //脚本开始
-        if(day == 2){
-            //移除覆盖物
-            map.removeOverlay(cat);
-            map.removeOverlay(car);
-            map.removeOverlay(ufo);
-            map.removeOverlay(fly);
-            map.removeOverlay(polyline);
-            startLushu();
-        }
-    });*/
-
-
-
-
 </script>
 </body>
 </html>
