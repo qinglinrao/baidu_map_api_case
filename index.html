@@ -35,7 +35,7 @@
 <body>
 <div id="container"></div>
 <div id="day_select">
-    天数选择：
+    <!--天数选择：
     <select id="day_select_option">
         <option value = "1">第1天</option>
         <option value = "2">第2天</option>
@@ -47,7 +47,11 @@
         <option value = "8">第8天</option>
         <option value = "9">第9天</option>
         <option value = "10">全程</option>
-    </select>
+    </select>-->
+    天数颜色：
+    <div style="color: #000000;font-size: 13px">1</div>
+    <div style="color: #0000FF;font-size: 13px">2</div>
+    <div style="color: #7FFF00;font-size: 13px">3</div>
 </div>
 <script type="text/javascript">
     var map = new BMapGL.Map("container");
@@ -71,10 +75,25 @@
         //路书启动,参数为一个函数
         lushu.start(function() {
             centerAndZoomSlow(90.918706,29.299495, 12);
+            lushu.removeMark(); //删除前一个的覆盖物
             lushu = null; //当前路书置空
             setTimeout('startLushu2()', 1000);
 
         });
+    }
+
+    function startLushu2() {
+        routeDrive(car, 30000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}],'startLushu3()');
+    }
+
+    function startLushu3() {
+        //只显示线路
+        routeDriveOnly({"begin_lng": 91.140031, "begin_lat": 29.653516, "end_lng": 94.387262, "end_lat": 29.626172}, '#0000FF', 2);
+
+        routeDriveOnly({"begin_lng": 94.387262, "begin_lat": 29.626172, "end_lng": 94.899233, "end_lat": 29.579823}, '#7FFF00', 2)
+
+        centerAndZoomSlow(90.918706,29.299495, 8);
+
     }
 
     startLushu();

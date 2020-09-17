@@ -122,6 +122,32 @@ function routeDrive(icon2=car, speed2=3000, position2={}, strokeColor2="#000000"
     drv.search(start, end);
 }
 
+//驾车路线
+function routeDriveOnly(position3={}, strokeColor3="#000000", strokeWeight3=3){
+
+
+
+    var arrPois3=[];
+    var lushu3;
+    // 实例化一个驾车导航用来生成路线
+    var drv3 = new BMapGL.DrivingRoute('西藏', {
+        onSearchComplete: function(res) {
+            if (drv3.getStatus() == BMAP_STATUS_SUCCESS) {
+                var plan3 = res.getPlan(0);
+                for(var j=0;j<plan3.getNumRoutes();j++){
+                    arrPois3= arrPois3.concat(plan3.getRoute(j).getPath());
+                }
+                map.addOverlay(new BMapGL.Polyline(arrPois3, {strokeColor: strokeColor3,'strokeWeight': strokeWeight3}));
+            }
+        }
+    });
+
+    //查找驾车线路
+    var start=new BMapGL.Point(position3["begin_lng"],position3["begin_lat"]); //起点坐标
+    var end=new BMapGL.Point(position3["end_lng"], position3["end_lat"]);  //终点坐标
+    drv3.search(start, end);
+}
+
 function showText(icon, lng, lat, title, hover_title, content){
     var opts_baiyun = {
         width: 300,     // 信息窗口宽度
