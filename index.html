@@ -28,8 +28,9 @@
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=GbOnD1tgWn5HLjLbpdOGCPENLoS46fl0">
     </script>
     <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="lushu.js?a=5"></script>
-    <script type="text/javascript" src="common.js?b=5"></script>
+    <script type="text/javascript" src="lushu.js?a=7"></script>
+    <script type="text/javascript" src="common.js?b=8"></script>
+    <script type="text/javascript" src="init.js?b=9"></script>
 </head>
 
 <body>
@@ -48,10 +49,14 @@
         <option value = "9">第9天</option>
         <option value = "10">全程</option>
     </select>-->
-    天数颜色：
-    <div style="color: #000000;font-size: 13px">1</div>
-    <div style="color: #0000FF;font-size: 13px">2</div>
-    <div style="color: #7FFF00;font-size: 13px">3</div>
+    <div style="color: #000000;font-size: 10px">1：贡噶机场→拉萨市区</div>
+    <div style="color: #0000FF;font-size: 10px">2：拉萨市区→林芝八一镇</div>
+    <div style="color: #7FFF00;font-size: 10px">3：林芝八一镇→索松村</div>
+    <div style="color: #FFA500;font-size: 10px">4：索松村→泽当镇</div>
+    <div style="color: #FF4500;font-size: 10px">5：泽当镇→羊湖</div>
+    <div style="color: #FF69B4;font-size: 10px">6：羊湖→日喀则</div>
+    <div style="color: #00FFFF;font-size: 10px">7：日喀则→纳木错</div>
+    <div style="color: #4B0082;font-size: 10px">8：纳木错→布达拉宫</div>
 </div>
 <script type="text/javascript">
     var map = new BMapGL.Map("container");
@@ -68,7 +73,7 @@
     var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
     //map.addControl(scaleCtrl);
 
-    var lushu = route(fly, 700000, {"begin_lng": 113.314282, "begin_lat": 23.395352, "end_lng": 90.918706, "end_lat": 29.299495}, '#000000', 1, "第1天：坐飞机前往西藏", false, [{lng:90.918706,lat:29.299495,html:'(day1)拉萨贡嘎国际机场',pauseTime:3}]);
+    var lushu = route(fly, 800000, {"begin_lng": 113.314282, "begin_lat": 23.395352, "end_lng": 90.918706, "end_lat": 29.299495}, '#000000', 1, "起飞", false, [{lng:90.918706,lat:29.299495,html:'(day1)拉萨贡嘎国际机场',pauseTime:3}]);
 
     function startLushu() {
 
@@ -83,16 +88,38 @@
     }
 
     function startLushu2() {
-        routeDrive(car, 30000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "第1天：前往拉萨市区", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}],'startLushu3()');
+        routeDrive(car, 30000, {"begin_lng": 90.918706, "begin_lat": 29.299495, "end_lng": 91.140031, "end_lat": 29.653516}, '#000000', 2, "冲冲冲", true, [{lng:91.141549,lat:29.652559,html:'(day1)到达：拉萨市城关区',pauseTime:2},{lng:91.140988,lat:29.652539,html:'(day1)到达：拉萨市城关区',pauseTime:2}],"setTimeout('startLushu3()', 3000)");
     }
 
     function startLushu3() {
         //只显示线路
+
+        //第2天：八一镇
         routeDriveOnly({"begin_lng": 91.140031, "begin_lat": 29.653516, "end_lng": 94.387262, "end_lat": 29.626172}, '#0000FF', 2);
 
-        routeDriveOnly({"begin_lng": 94.387262, "begin_lat": 29.626172, "end_lng": 94.899233, "end_lat": 29.579823}, '#7FFF00', 2)
+        //第3天：索松村
+        routeDriveOnly({"begin_lng": 94.387262, "begin_lat": 29.626172, "end_lng": 94.899233, "end_lat": 29.579823}, '#7FFF00', 4);
 
-        centerAndZoomSlow(90.918706,29.299495, 8);
+        //第4天：乃东龙马宾馆
+        routeDriveOnly({"begin_lng": 94.899233, "begin_lat": 29.579823, "end_lng": 91.780297, "end_lat": 29.247807}, '#FFA500', 2);
+
+        //第5天：羊湖极地酒店
+        routeDriveOnly({"begin_lng": 91.780297, "begin_lat": 29.247807, "end_lng": 90.608259, "end_lat": 29.189933}, '#FF4500', 2);
+
+        //第6天：日喀则
+        routeDriveOnly({"begin_lng": 90.608259, "begin_lat": 29.189933, "end_lng": 88.888411, "end_lat": 29.271884}, '#FF69B4', 2);
+
+        //第7天：纳木错
+        routeDriveOnly({"begin_lng": 88.888411, "begin_lat": 29.271884, "end_lng": 91.103478, "end_lat": 30.477987}, '#00FFFF', 2);
+
+        //第8天：布达拉宫
+        routeDriveOnly({"begin_lng": 91.103478, "begin_lat": 30.477987, "end_lng": 91.128401, "end_lat": 29.654213}, '#4B0082', 2);
+
+        centerAndZoomSlow(90.918706,29.299495, 7);
+
+        $("#day_select").toggle();
+
+        showTextAll();
 
     }
 
